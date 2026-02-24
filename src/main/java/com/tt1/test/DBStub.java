@@ -1,5 +1,6 @@
 package com.tt1.test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,36 +8,31 @@ public class DBStub {
     private List<ToDo> tareas = new ArrayList<>();
     private List<String> emails = new ArrayList<>();
 
-    // CREATE
     public void agregarTarea(ToDo tarea) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        tareas.add(tarea);
     }
 
-    // READ
     public List<ToDo> obtenerTodas() {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return tareas;
     }
 
     public ToDo buscarPorNombre(String nombre) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return tareas.stream()
+            .filter(t -> t.getNombre().equals(nombre))
+            .findFirst()
+            .orElse(null);
     }
 
-    // UPDATE
     public void marcarComoCompletada(String nombre) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        ToDo tarea = buscarPorNombre(nombre);
+        if (tarea != null) tarea.setCompletado(true);
     }
 
-    // DELETE
-    public void eliminarTarea(String nombre) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
-    }
-
-    // Emails
     public void agregarEmail(String email) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        emails.add(email);
     }
 
     public List<String> obtenerEmails() {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return emails;
     }
 }

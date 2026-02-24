@@ -1,8 +1,11 @@
 package com.tt1.test;
+import com.tt1.test.IMailer;
 
-public class MailerStub {
-
+public class MailerStub implements IMailer {
+    @Override
     public boolean enviarCorreo(String email, String mensaje) {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        System.out.println("Para: " + email);
+        System.out.println("Mensaje: " + mensaje);
+        return true;
     }
 }
