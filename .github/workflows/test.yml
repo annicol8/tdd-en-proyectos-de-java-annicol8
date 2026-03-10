@@ -1,4 +1,4 @@
-name: ejecutar tests y actualizar early
+name: Ejecutar tests y actualizar early
 
 on:
     push:
